@@ -32,9 +32,13 @@ newGridButton.addEventListener('click', size => {
 
 function makeGrid(size) {
     let gridArea = size * size;
+    let containerHeight = 600;
+    let containerWidth = 600;
     for (let i = 0; i < gridArea; i++) {
         let square = document.createElement('div');
         square.className = 'square';
+        square.style.height = `${containerHeight / size}px`;
+        square.style.width = `${containerWidth / size}px`;
         mainContainer.appendChild(square);
     }
 }
