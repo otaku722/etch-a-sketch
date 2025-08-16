@@ -1,5 +1,5 @@
 #new-grid {
-
+    margin-bottom: 20px;
 }
 
 #main-container {
@@ -7,8 +7,14 @@
     height: 600px;
     width: 600px;
     flex-wrap: wrap;
+    border: 2px black solid;
 }
 
 .square {
-    
+    box-sizing: border-box;
+    border: 1px #f2f2f2 solid;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
 }
