@@ -10,3 +10,31 @@
 - New grid should take up same amount of space as old grid, with the only difference being in square density
 
 */
+
+// Store HTML elements for access
+let newGridButton = document.querySelector('#new-grid');
+let mainContainer = document.querySelector('#main-container');
+
+// Initial grid size
+let initialSize = 16;
+
+// Make initial 16x16 grid
+makeGrid(initialSize);
+
+newGridButton.addEventListener('click', size => {
+    let newSize = 0;
+    do {
+        newSize = parseInt(prompt('New grid size (limit 100):'), 10);
+    } while (newSize > 100 || newSize < 0);
+
+    makeGrid(newSize);
+});
+
+function makeGrid(size) {
+    let gridArea = size * size;
+    for (let i = 0; i < gridArea; i++) {
+        let square = document.createElement('div');
+        square.className = 'square';
+        mainContainer.appendChild(square);
+    }
+}
