@@ -50,13 +50,5 @@ function makeGrid(size) {
 }
 
 function colorSquare(e) {
-    e.target.style.backgroundColor = `rgb(${getRandomColorValue()}, ${getRandomColorValue()}, ${getRandomColorValue()})`;
-}
-
-function getRandomColorValue() {
-    // Min and max RGB values
-    let min = 0;
-    let max = 255;
-
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    e.target.style.backgroundColor = 'black';
 }
