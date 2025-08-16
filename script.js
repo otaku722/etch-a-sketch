@@ -6,7 +6,7 @@
 
 *** THINGS TO REMEMBER ***
 - Give each square in the grid a class to allow CSS styling
--Set user input limit to 100 squres per side
+- Set user input limit to 100 squres per side
 - New grid should take up same amount of space as old grid, with the only difference being in square density
 
 */
@@ -21,6 +21,7 @@ let initialSize = 16;
 // Make initial 16x16 grid
 makeGrid(initialSize);
 
+// Listen for a click of 'New Grid' button
 newGridButton.addEventListener('click', size => {
     let newSize = 0;
     do {
@@ -31,6 +32,10 @@ newGridButton.addEventListener('click', size => {
 });
 
 function makeGrid(size) {
+    document.querySelectorAll('.square').forEach(square => {
+        square.remove();
+    });
+
     let gridArea = size * size;
     let containerHeight = 600;
     let containerWidth = 600;
@@ -39,6 +44,11 @@ function makeGrid(size) {
         square.className = 'square';
         square.style.height = `${containerHeight / size}px`;
         square.style.width = `${containerWidth / size}px`;
+        square.addEventListener('mouseover', colorSquare);
         mainContainer.appendChild(square);
     }
+}
+
+function colorSquare(e) {
+    e.target.style.backgroundColor = 'black';
 }
